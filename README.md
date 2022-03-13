@@ -4,7 +4,7 @@ Analysis of 16S RNA sequencing for 133 samples for the metagenomics course proje
 #### Samples and their URLs were retrieved from the NCBI database (accession SRA: PRJNA565903)
 https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA565903
 
-### R script: Download the samples
+### R script: Download the samples using their URLs
 ```
 library(downloader)
 options(timeout=100000)
@@ -24,4 +24,9 @@ fastq-dump --split-files *
 ```
 fastqc *.fastq
 multiqc . --interactive
+```
+### Command line: Run a perl script to merge samples to be compatible with IMNGS software
+The perl script is available in the folder "Scripts"
+```
+perl remultiplexor-paired.pl
 ```
