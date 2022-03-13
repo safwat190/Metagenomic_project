@@ -32,8 +32,11 @@ perl remultiplexor-paired.pl
 ```
 ### R script: Using Rhea in R
 #### Normalization.R
+To normalize the data
 #### Alpha-Diversity.R
+To calculate alpha diversity
 #### Beta-Diversity.R
+To calculate beta diversity
 #### Taxonomic-Binning.R
 #### Create_Input_Table.R
 #### Serial-Group-Comparisons.R
