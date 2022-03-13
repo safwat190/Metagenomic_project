@@ -1,0 +1,15 @@
+##Samples were retrieved from the NCBI database (accession SRA: PRJNA565903)
+https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA565903
+
+###R script to download the samples
+```
+library(downloader)
+options(timeout=100000)
+for(url in download.links)
+{
+    filename = gsub(".*\\/(.*)\\..*", "\\1", url)
+    download(url, destfile=filename)
+}
+setwd("~/Downloads/0_metagenome_project")
+download.links = SraRunInfo$download_path
+```
