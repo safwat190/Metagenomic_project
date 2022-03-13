@@ -1,5 +1,5 @@
 # Metagenomic_project
-Analysis of 133 fecal samples 16S sequencing data for the metagenomics course project.
+Analysis of the 16S sequencing data of 133 fecal samples  for the metagenomics course project.
 
 #### Samples and their URLs were retrieved from the NCBI database (accession SRA: PRJNA565903)
 https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA565903
