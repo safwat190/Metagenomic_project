@@ -31,14 +31,14 @@ The perl script is available in the folder "Scripts"
 perl remultiplexor-paired.pl
 ```
 ### R script: Using Rhea in R
-Normalization.R
-Alpha-Diversity.R
-Beta-Diversity.R
-Taxonomic-Binning.R
-Create_Input_Table.R
-Serial-Group-Comparisons.R
-Over-Time-Serial-Comparisons.R
-Correlations.R
+#### Normalization.R
+#### Alpha-Diversity.R
+#### Beta-Diversity.R
+#### Taxonomic-Binning.R
+#### Create_Input_Table.R
+#### Serial-Group-Comparisons.R
+#### Over-Time-Serial-Comparisons.R
+#### Correlations.R
 
 ### R script: Using Seurat
 Seurat package in R was used to perform differential analysis as follows.......
