@@ -44,13 +44,50 @@ To detect the difference in composition and abundances of the samples, the sampl
 #### - It has to have a minimum relative abundance < 0.5. Variables with < 0.5 relative abundance were replaced by zero.
 #### - It has to be present in at least 30% of samples of either group.
 #### - It has to have a relative abundance median of at least 1% across all groups.
-#### - Over-Time-Serial-Comparisons.R
-Not yet
-#### Correlations.R
-Not yet
 
 ### R script: Using Seurat
 Seurat package in R was used to perform differential analysis as follows.......
+### load packages
 ```
-Code here
+library(Seurat)
+library(dplyr)
+library(Matrix)
+library(ggplot2)
 ```
+
+### Read taxonomic relative abundance and metadata
+```
+metadata = read.csv('/Seurat_meta.csv',row.names = 1,header = T, sep = '\t')
+counts = read.csv('/Seurat_counts.csv',row.names = 1,header = T, sep = '\t')
+```
+
+### Create a Seurat object
+```
+object = CreateSeuratObject(counts = counts, meta.data = metadata)
+```
+
+### Log Normalize Counts
+```
+object = NormalizeData(object, normalization.method = "LogNormalize")
+```
+
+### Identify differentially expressed taxonomic groups among inactive, baseline and active groups
+```
+Idents(object) = 'disease_state'
+group_markers = FindAllMarkers(object, logfc.threshold = 0, min.pct = 0.2)
+write.csv(group_markers, '/Group markers.csv')
+```
+
+### Identify differentially expressed taxonomic groups between active and inactive status
+```
+active_vs_inactive = FindMarkers(object, ident.1 = 'Active', ident.2 = 'Inactive', logfc.threshold = 0, min.pct = 0.2)
+write.csv(active_vs_inactive, '/active_vs_inactive.csv')
+```
+
+### Generating heatmap and dotplots: First define the list of taxonomies and then plot.
+```
+object = ScaleData(object, features = rownames(object))
+DoHeatmap(object, features = Taxons_of_interest)
+DotPlot(object, features = Taxons_of_interest2)+theme(axis.text.x = element_text(angle = 45, hjust=1))
+```
+### End of analysis.
